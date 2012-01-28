@@ -25,7 +25,7 @@ $authentification = new MultiAuth\MultiAuth(
                 return null;
             },
             'createAccountFunction'=>
-            function($test = null){
+            function(){
                 $user = new \Models\User();
                 $em = App::getEm();
                 $em->persist($user);
@@ -49,7 +49,6 @@ $authentification = new MultiAuth\MultiAuth(
 if(isset($_GET['logout'])){
     $authentification->logout();
 }
-//var_dump($_SESSION);
 $user = $authentification->login();
 echo '<br>';
 echo "You are logged in ".$user->getId().' !';
